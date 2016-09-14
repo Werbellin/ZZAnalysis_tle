@@ -183,7 +183,7 @@ ZZCandidateFiller::ZZCandidateFiller(const edm::ParameterSet& iConfig) :
 
 
   ZZjjMVA_v1 zzjj_mva_var;
-  edm::FileInPath weightFile("ZZAnalysis/AnalysisStep/test/test_SKL_minimal_MBP.xml");
+  edm::FileInPath weightFile("ZZAnalysis/AnalysisStep/data/ZZjj_MVA/test_SKL_minimal_MBP.xml");
   const std::string _MethodName = "BDTG method";
 
   TMVA::Reader tmpTMVAReader( "!Color:Silent:!Error" );

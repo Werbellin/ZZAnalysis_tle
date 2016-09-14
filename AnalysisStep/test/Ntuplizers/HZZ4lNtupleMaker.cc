@@ -170,6 +170,8 @@ namespace {
   std::vector<float> fsrGenPt;
   Bool_t passIsoPreFSR = 0;
 
+  Float_t ZZjj_MVA = -99;
+
   Float_t p0plus_VAJHU = 0;
   Float_t p0_g1prime2_VAJHU = 0;
   Float_t p0hplus_VAJHU = 0;
@@ -1444,6 +1446,9 @@ void HZZ4lNtupleMaker::FillCandidate(const pat::CompositeCandidate& cand, bool e
     xi            = cand.userFloat("xi");
     xistar        = cand.userFloat("xistar");
 
+    // Get the VBS MVA
+    ZZjj_MVA = cand.userFloat("ZZjj_MVA");
+
     // Get MELA probabilities, implemented with getCheckedUserFloat to later be able to disable some MEs through additional options
     getCheckedUserFloat(cand, "p0plus_VAJHU", p0plus_VAJHU, 0);
     getCheckedUserFloat(cand, "p0_g1prime2_VAJHU", p0_g1prime2_VAJHU, 0);
@@ -2232,6 +2237,8 @@ void HZZ4lNtupleMaker::BookAllBranches(){
   }
 
   //Discriminants
+  myTree->Book("ZZjj_MVA", ZZjj_MVA);
+
   myTree->Book("p0plus_VAJHU", p0plus_VAJHU);
   myTree->Book("p0_g1prime2_VAJHU", p0_g1prime2_VAJHU);
   myTree->Book("p0hplus_VAJHU", p0hplus_VAJHU);
