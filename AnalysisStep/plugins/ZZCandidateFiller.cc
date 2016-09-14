@@ -43,14 +43,39 @@
 #include <ZZAnalysis/AnalysisStep/interface/LeptonIsoHelper.h>
 #include <ZZAnalysis/AnalysisStep/interface/JetCleaner.h>
 #include <KinZfitter/KinZfitter/interface/KinZfitter.h>
-
+#include "DataFormats/Candidate/interface/Candidate.h"
 #include "TH2F.h"
 #include "TFile.h"
 #include "TLorentzVector.h"
 
+#include "CondFormats/EgammaObjects/interface/GBRForest.h"
+#include "TMVA/Reader.h"
+#include "TMVA/MethodBDT.h"
 #include <string>
 
 using namespace zzanalysis;
+
+class ZZjjMVA_v1 {
+  // Define the struct that contains all necessary for MVA variables
+  // Note: all variables have to be floats for TMVA Reader, even if 
+  // the training was done with ints.
+
+  public :
+//  struct AllVariables {
+    float m_jj; // 0
+    float dEta_tj; // 1
+    float m_4l; // 2
+    float Z1_zepp; // 3
+    float Z2_zepp; // 4
+    float rel_pt_hard; // 5
+    float tj_delta_rel; // 6
+//  };
+  std::vector<float> getVar() {
+    return std::vector<float>({m_jj, dEta_tj, m_4l, Z1_zepp, Z2_zepp, rel_pt_hard, tj_delta_rel});
+  }
+};
+
+
 
 bool doVtxFit = false;
 
@@ -93,6 +118,8 @@ private:
   edm::EDGetTokenT<pat::METCollection> metToken;
   edm::EDGetTokenT<edm::View<reco::Candidate> > softLeptonToken;
   edm::EDGetTokenT<edm::View<reco::CompositeCandidate> > ZCandToken;
+
+  const GBRForest* gbrForest;
 };
 
 
@@ -153,11 +180,31 @@ ZZCandidateFiller::ZZCandidateFiller(const edm::ParameterSet& iConfig) :
   // No longer used, but keept for future needs
 //   muon_iso_cut = iConfig.getParameter<double>("muon_iso_cut");
 //   electron_iso_cut = iConfig.getParameter<double>("electron_iso_cut");
+
+
+  ZZjjMVA_v1 zzjj_mva_var;
+  edm::FileInPath weightFile("ZZAnalysis/AnalysisStep/test/test_SKL_minimal_MBP.xml");
+  const std::string _MethodName = "BDTG method";
+
+  TMVA::Reader tmpTMVAReader( "!Color:Silent:!Error" );
+  tmpTMVAReader.AddVariable("m_jj", &zzjj_mva_var.m_jj);
+  tmpTMVAReader.AddVariable("dEta_tj", &zzjj_mva_var.dEta_tj);
+  tmpTMVAReader.AddVariable("m_4l", &zzjj_mva_var.m_4l);
+  tmpTMVAReader.AddVariable("Z1_zepp", &zzjj_mva_var.Z1_zepp);
+  tmpTMVAReader.AddVariable("Z2_zepp", &zzjj_mva_var.Z2_zepp);
+  tmpTMVAReader.AddVariable("rel_pt_hard", &zzjj_mva_var.rel_pt_hard);
+  tmpTMVAReader.AddVariable("tj_delta_rel", &zzjj_mva_var.tj_delta_rel);
+
+
+  std::unique_ptr<TMVA::IMethod> temp( tmpTMVAReader.BookMVA(_MethodName , weightFile.fullPath()));
+
+  gbrForest = new GBRForest( dynamic_cast<TMVA::MethodBDT*>( tmpTMVAReader.FindMVA(_MethodName) ) );
 }
 
 ZZCandidateFiller::~ZZCandidateFiller(){
   delete kinZfitter;
   delete mela;
+  delete gbrForest;
 }
 
 
@@ -560,6 +607,8 @@ void ZZCandidateFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetu
     float DiJetDEta  = -99;
     float DiJetFisher  = -99;
 
+    float ZZjj_MVA = -2;
+
     unsigned int nCandidates=0; // Should equal 3 after the loop below
     for (int jecnum = 0; jecnum < 3; jecnum++){
       SimpleParticleCollection_t associated;
@@ -591,6 +640,27 @@ void ZZCandidateFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetu
         DiJetDEta = jet1.eta()-jet2.eta();
         DiJetMass = (jet1.p4()+jet2.p4()).M();
         DiJetFisher = fisher(DiJetMass, DiJetDEta);
+
+        // Calculate
+        ZZjjMVA_v1 zzjj_mva_var;
+        zzjj_mva_var.m_jj    = DiJetMass;
+        zzjj_mva_var.dEta_tj = DiJetDEta;
+        zzjj_mva_var.m_4l    = myCand.p4().mass(); 
+        reco::Candidate::LorentzVector tj_1(jet1.p4());
+        reco::Candidate::LorentzVector tj_2(jet2.p4());
+        float tj_eta_sum = (tj_1.Eta() + tj_2.Eta() ) / 2.;
+        
+        reco::Candidate::LorentzVector Z1_p4(myCand.daughter(0)->p4()); 
+        reco::Candidate::LorentzVector Z2_p4(myCand.daughter(1)->p4()); 
+
+        zzjj_mva_var.Z1_zepp = Z1_p4.Eta() - tj_eta_sum; 
+        zzjj_mva_var.Z2_zepp = Z2_p4.Eta() - tj_eta_sum; 
+
+        zzjj_mva_var.rel_pt_hard = (Z1_p4.Vect() + Z2_p4.Vect() + tj_1.Vect() + tj_2.Vect()).Rho() / (Z1_p4.Pt() + Z1_p4.Pt() + tj_1.Pt() + tj_2.Pt());
+        zzjj_mva_var.tj_delta_rel = (tj_1.Vect() + tj_2.Vect()).Rho()/ (tj_1.Pt() + tj_2.Pt());
+ 
+        const std::vector<float> vars  = zzjj_mva_var.getVar();//= std::move( fillMVAVariables( particle, iEvent ) );  
+        ZZjj_MVA = gbrForest->GetClassifier(vars.data());
       }
       for (unsigned int ijet = 0; ijet<cleanedJetsPt30Jec.size(); ijet++){
         TLorentzVector jet(
@@ -1346,6 +1416,9 @@ void ZZCandidateFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetu
     myCand.addUserFloat("DiJetMass", DiJetMass);
     myCand.addUserFloat("DiJetDEta", DiJetDEta);
     myCand.addUserFloat("DiJetFisher", DiJetFisher);
+
+    // VBS MVA scores
+    myCand.addUserFloat("ZZjj_MVA", ZZjj_MVA);
 
     // MELA probabilities
     // JHUGen
