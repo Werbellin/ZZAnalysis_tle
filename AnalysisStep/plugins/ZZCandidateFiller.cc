@@ -644,7 +644,7 @@ void ZZCandidateFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetu
         // Calculate
         ZZjjMVA_v1 zzjj_mva_var;
         zzjj_mva_var.m_jj    = DiJetMass;
-        zzjj_mva_var.dEta_tj = DiJetDEta;
+        zzjj_mva_var.dEta_tj = fabs(DiJetDEta);
         zzjj_mva_var.m_4l    = myCand.p4().mass(); 
         reco::Candidate::LorentzVector tj_1(jet1.p4());
         reco::Candidate::LorentzVector tj_2(jet2.p4());
