@@ -90,6 +90,11 @@ MCHistoryTools::MCHistoryTools(const edm::Event & event, std::string sampleName,
       if (boost::starts_with(sampleName,"TTZJets")) processID=900103;      
     }
     
+    // for TTZ (without jets sample)
+    if (boost::starts_with(sampleName,"TTZ")) processID=900104;      
+    // for WWZ
+    if (boost::starts_with(sampleName,"WWZ")) processID=900105;      
+
 
     // take the MC weight
     GenEventInfoProduct  genInfo = *(gen.product());
@@ -312,11 +317,13 @@ MCHistoryTools::init() {
       }
     }
 
-    if (iZ22==-1 || theGenLeps[iZ21]->pdgId()+theGenLeps[iZ22]->pdgId()!=0) { //Test remaining conditions: Z2 is found and SF, OS
-      cout << "MCHistoryTools: Cannot sort leptons ";
-      for (int i=0; i<4; ++i) cout << theGenLeps[i]->pdgId() << " ";
-      cout << iZ11 << " " << iZ12 << " " << iZ21 << " " << iZ22 << endl;
-      abort();
+    bool do_SF_OS_check = true;
+    if (processID == 900104 || processID == 900105) do_SF_OS_check = false;
+    if ( do_SF_OS_check && (iZ22==-1 || theGenLeps[iZ21]->pdgId()+theGenLeps[iZ22]->pdgId()!=0) ) {  //Test remaining conditions: Z2 is found and SF, OS
+        cout << "MCHistoryTools: Cannot sort leptons ";
+        for (int i=0; i<4; ++i) cout << theGenLeps[i]->pdgId() << " ";
+        cout << iZ11 << " " << iZ12 << " " << iZ21 << " " << iZ22 << endl;
+        abort();
     }
     
     // Sort leptons by sign
