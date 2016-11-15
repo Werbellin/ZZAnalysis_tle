@@ -49,7 +49,8 @@ declareDefault("SUPERMELA_MASS", 125, globals())
 declareDefault("SELSETUP", "allCutsAtOncePlusSmart", globals())
 
 #Best candidate comparator (see interface/Comparators.h)
-declareDefault("BESTCANDCOMPARATOR", "byBestKD", globals())
+#declareDefault("BESTCANDCOMPARATOR", "byBestKD", globals())
+declareDefault("BESTCANDCOMPARATOR", "byBestZ1bestZ2", globals())
 
 # Set to True to make candidates with the full combinatorial of loose leptons (for debug; much slower)
 declareDefault("KEEPLOOSECOMB", False, globals())
@@ -683,7 +684,8 @@ TWOGOODLEPTONS = ("userFloat('d0.isGood') && userFloat('d1.isGood')") # Z made o
 
 ZLEPTONSEL     = TWOGOODLEPTONS # Note: this is without ISO
 
-Z1PRESEL    = (ZLEPTONSEL + " && mass > 40 && mass < 120") # Note: this is without ISO
+#Z1PRESEL    = (ZLEPTONSEL + " && mass > 40 && mass < 120") # Note: this is without ISO
+Z1PRESEL    = (ZLEPTONSEL + " && mass > 60 && mass < 120") # Note: this is without ISO
 
 BESTZ_AMONG = ( Z1PRESEL + "&& userFloat('d0.passCombRelIsoPFFSRCorr') && userFloat('d1.passCombRelIsoPFFSRCorr')" )
 
@@ -787,8 +789,11 @@ FOURGOODLEPTONS    =  ("userFloat('d0.GoodLeptons') && userFloat('d1.GoodLeptons
                        ) #ZZ made of 4 tight leptons passing SIP and ISO
 
 
-Z1MASS            = "daughter('Z1').mass>40 && daughter('Z1').mass<120"
-Z2MASS            = "daughter('Z2').mass>4  && daughter('Z2').mass<120" # (was > 4 in Synch) to deal with m12 cut at gen level
+#Z1MASS            = "daughter('Z1').mass>40 && daughter('Z1').mass<120"
+#Z2MASS            = "daughter('Z2').mass>4  && daughter('Z2').mass<120" # (was > 4 in Synch) to deal with m12 cut at gen level
+Z1MASS            = "daughter('Z1').mass>60 && daughter('Z1').mass<120"
+Z2MASS            = "daughter('Z2').mass>60 && daughter('Z2').mass<120" # (was > 4 in Synch) to deal with m12 cut at gen level
+
 #MLL3On4_12        = "userFloat('mZa')>12" # mll>12 on 3/4 pairs;
 #MLLALLCOMB        = "userFloat('mLL6')>4" # mll>4 on 6/6 AF/AS pairs;
 MLLALLCOMB        = "userFloat('mLL4')>4" # mll>4 on 4/4 AF/OS pairs;
