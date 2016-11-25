@@ -1066,6 +1066,26 @@ process.ZLLCand = cms.EDProducer("ZZCandidateFiller",
 ### Jets
 ### ----------------------------------------------------------------------
 
+# PU jet ID
+from RecoJets.JetProducers.PileupJetIDParams_cfi import full_80x_chs
+from RecoJets.JetProducers.PileupJetIDCutParams_cfi import full_80x_chs_wp
+
+process.load("RecoJets.JetProducers.PileupJetID_cfi")
+process.pileupJetIdUpdated = process.pileupJetId.clone(
+
+    # algos = cms.VPSet(
+    #     full_80x_chs.clone(
+    #         JetIdParams = full_80x_chs_wp 
+    #         )
+    #     ),
+    
+    jets=cms.InputTag("slimmedJets"),
+    inputIsCorrected=True,
+    applyJec=True,
+    vertexes=cms.InputTag("offlineSlimmedPrimaryVertices")
+    )
+
+
 process.load("CondCore.CondDB.CondDB_cfi")
 
 # q/g likelihood
@@ -1160,6 +1180,11 @@ if APPLYJEC:
         jetCorrFactorsSource = cms.VInputTag(cms.InputTag("patJetCorrFactorsReapplyJEC"))
         )
 
+    #add pileup id and discriminant to patJetsReapplyJEC
+    process.patJetsReapplyJEC.userData.userFloats.src += ['pileupJetIdUpdated:fullDiscriminant'] 
+    process.patJetsReapplyJEC.userData.userInts.src += ['pileupJetIdUpdated:fullId'] 
+
+
     ### Replace inputs in QGTagger and dressedJets
     process.QGTagger.srcJets = cms.InputTag( 'patJetsReapplyJEC')
     process.dressedJets.src = cms.InputTag('patJetsReapplyJEC')
@@ -1196,7 +1221,7 @@ process.preSkimCounter = cms.EDProducer("EventCountProducer")
 process.PVfilter =  cms.Path(process.preSkimCounter+process.goodPrimaryVertices)
 
 if APPLYJEC:
-    process.Jets = cms.Path( process.patJetCorrFactorsReapplyJEC + process.patJetsReapplyJEC + process.QGTagger + process.dressedJets )
+    process.Jets = cms.Path( process.pileupJetIdUpdated + process.patJetCorrFactorsReapplyJEC + process.patJetsReapplyJEC + process.QGTagger + process.dressedJets )
 else:
     process.Jets = cms.Path( process.QGTagger + process.dressedJets )
 
