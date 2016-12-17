@@ -1160,8 +1160,8 @@ void HZZ4lNtupleMaker::FillJet(const pat::Jet& jet)
    JetSigma .push_back(jet.userFloat("jec_unc"));
    JetHadronFlavour .push_back(jet.hadronFlavour());
 
-   JetPUValue.push_back(jet.userFloat("fullDiscriminant"));
-   JetPUID.push_back(jet.userInt("fullId"));
+   JetPUValue.push_back(jet.userFloat("pileupJetIdUpdated:fullDiscriminant"));
+   JetPUID.push_back(jet.userInt("pileupJetIdUpdated:fullId"));
 }
 
 
@@ -1958,7 +1958,6 @@ Float_t HZZ4lNtupleMaker::getAllWeight(const reco::Candidate* Lep) const
     if(myLepPt > 199.) myLepPt = 199.;
 
 	weight *= hTH2F_El_Reco->GetBinContent(hTH2F_El_Reco->GetXaxis()->FindBin(SCeta),hTH2F_El_Reco->GetYaxis()->FindBin(myLepPt));
-
     // reset pt for next lookup with different limits    
     myLepPt = Lep->pt();
 
