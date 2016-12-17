@@ -7,7 +7,7 @@ Please use CMSSW_8_0_20.
 
 Download and execute the setup script:
 ```
-wget -O /tmp/checkout_80X.csh https://raw.githubusercontent.com/CJLST/ZZAnalysis/miniAOD_80X/checkout_80X.csh
+wget -O /tmp/checkout_80X.csh https://raw.githubusercontent.com/Werbellin/ZZjjAnalysis/ZZjj_miniAOD_80X/checkout_80X.csh 
 cd $CMSSW_BASE/src
 cmsenv
 source /tmp/checkout_80X.csh
