@@ -13,26 +13,37 @@ identifier,process,crossSection=-1,BR=1,execute=True,dataset,prefix,pattern,spli
 #ZH125, ,0.883888217433748,0.000755429641610507,,/ZH_HToZZ_4LFilter_M125_13TeV_powheg2-minlo-HZJ_JHUgenV6_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,2,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=-2,,
 #ttH125, ,0.5071,0.000775623996972085,          ,/ttH_HToZZ_4LFilter_M125_13TeV_powheg2_JHUgenV6_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,2,,,
 
-#ZZTo4l,,            1.256,      ,,/ZZTo4L_13TeV_powheg_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZQQB=True;APPLY_K_NLOEW_ZZQQB=True;ADDLOOSEELE=True;APPLYTRIG=False,,
-#ZZTo4lamcatnlo,,    1.256,      ,,/ZZTo4L_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,3,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZQQB=True;APPLY_K_NLOEW_ZZQQB=True;ADDLOOSEELE=True;APPLYTRIG=False,, # Xsection from the gen: 1.218
+#ZZTo4l,,            1.256,      ,,/ZZTo4L_13TeV_powheg_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZQQB=True;APPLY_K_NLOEW_ZZQQB=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ZZTo4lamcatnlo,,    1.256,      ,,/ZZTo4L_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZQQB=True;APPLY_K_NLOEW_ZZQQB=True;ADDLOOSEELE=False;APPLYTRIG=False,, # Xsection from the gen: 1.218
+#ZZTo4l_FxFx_0,,    4.229e-02,      ,,/ZZp0j_FxFx_GEN-SIM_prod_v1/ppigard-ZZp0j_FxFx_MINIAODSIM_prod_v1-28028af67189b3de7224b79195bd0e1d/USER,dbs-USER,,1,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZQQB=True;APPLY_K_NLOEW_ZZQQB=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ZZTo4l_FxFx_1,,    1.602e-02,      ,,/ZZp1j_FxFx_GEN-SIM_prod_v1b/ppigard-ZZp1j_FxFx_MINIAODSIM_prod_v1a-28028af67189b3de7224b79195bd0e1d/USER,dbs-USER,,1,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZQQB=True;APPLY_K_NLOEW_ZZQQB=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ZZTo4l_FxFx_2,,    8.169e-03,      ,,/ZZp2j_FxFx_GEN-SIM_prod_v1b/ppigard-ZZp2j_FxFx_MINIAODSIM_prod_v1d-28028af67189b3de7224b79195bd0e1d/USER,dbs-USER,,1,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZQQB=True;APPLY_K_NLOEW_ZZQQB=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+
+#ggTo2e2mu_Contin_MCFM701_NonWimpy,,    0.0031942,      ,,/GluGluToContinZZTo2e2mu_13TeV_MCFM701_pythia8/ppigard-GluGluToContinZZTo2e2mu_MINIAODSIM_prod_v1d-28028af67189b3de7224b79195bd0e1d/USER,dbs-USER,,5,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ggTo4mu_Contin_MCFM701_NonWimpy,,    0.00158549,      ,,/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/ppigard-GluGluToContinToZZTo4mu_MINIAODSIM_prod_v1d-28028af67189b3de7224b79195bd0e1d/USER,dbs-USER,,5,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ggTo42_Contin_MCFM701_NonWimpy,,    0.00158549,      ,,/GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8/ppigard-GluGluToContinZZTo4e_MINIAODSIM_prod_v1d-28028af67189b3de7224b79195bd0e1d/USER,dbs-USER,,5,PROCESS_CR=True;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+
+
+
+
 
 ###,,,,,,,,,,,Xsec from https://twiki.cern.ch/twiki/bin/viewauth/CMS/Run2MCProductionforHiggsProperties#MCFM_ZZ_4l_l_e_mu_tau
-#ggTo4e_Contin_MCFM701,,      0.00158549,   ,,/GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=True;APPLYTRIG=False,,
-#ggTo4mu_Contin_MCFM701,,     0.00158549,   ,,/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=True;APPLYTRIG=False,,
-#ggTo4tau_Contin_MCFM701,,    0.00158549,   ,,/GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,5,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=True;APPLYTRIG=False,,
-#ggTo2e2mu_Contin_MCFM701,,   0.0031942,    ,,/GluGluToContinToZZTo2e2mu_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=True;APPLYTRIG=False,,
-#ggTo2e2tau_Contin_MCFM701,,  0.0031942,    ,,/GluGluToContinToZZTo2e2tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,2,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=True;APPLYTRIG=False,,
-#ggTo2mu2tau_Contin_MCFM701,, 0.0031942,    ,,/GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=True;APPLYTRIG=False,,
+#ggTo4e_Contin_MCFM701,,      0.00158549,   ,,/GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ggTo4mu_Contin_MCFM701,,     0.00158549,   ,,/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ggTo4tau_Contin_MCFM701,,    0.00158549,   ,,/GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,5,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+ggTo2e2mu_Contin_MCFM701,,   0.0031942,    ,,/GluGluToContinToZZTo2e2mu_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ggTo2e2tau_Contin_MCFM701,,  0.0031942,    ,,/GluGluToContinToZZTo2e2tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,2,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ggTo2mu2tau_Contin_MCFM701,, 0.0031942,    ,,/GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
 
 
 ###,,,,,,,,,,,Xsec from https://twiki.cern.ch/twiki/bin/view/CMS/PhantomGeneratorCMS averaging grid and events with their errors
-#VBFTo2e2muJJ_0PMH125_phantom128,,2.4817E-04,,,/VBFToHiggs0PMToZZTo2e2muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
-#VBFTo4eJJ_0PMH125_phantom128,,1.3339E-04,,,/VBFToHiggs0PMToZZTo4eJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
-#VBFTo4muJJ_0PMH125_phantom128,,1.3339E-04,,,/VBFToHiggs0PMToZZTo4muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
+#VBFTo2e2muJJ_0PMH125_phantom128,,2.4817E-04,,,/VBFToHiggs0PMToZZTo2e2muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
+#VBFTo4eJJ_0PMH125_phantom128,,1.3339E-04,,,/VBFToHiggs0PMToZZTo4eJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
+#VBFTo4muJJ_0PMH125_phantom128,,1.3339E-04,,,/VBFToHiggs0PMToZZTo4muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
 
 #VBFTo2e2muJJ_Contin_phantom128,,6.429E-04,,,/VBFToContinZZTo2e2muJJ_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0,,
-#VBFTo4eJJ_Contin_phantom128,,3.098E-04,,,/VBFToContinZZTo4eJJ_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
-#VBFTo4muJJ_Contin_phantom128,,3.098E-04,,,/VBFToContinZZTo4muJJ_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
+#VBFTo4eJJ_Contin_phantom128,,3.098E-04,,,/VBFToContinZZTo4eJJ_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
+#VBFTo4muJJ_Contin_phantom128,,3.098E-04,,,/VBFToContinZZTo4muJJ_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
 
 
 
@@ -41,21 +52,21 @@ identifier,process,crossSection=-1,BR=1,execute=True,dataset,prefix,pattern,spli
 
 
 
-#VBFTo2e2muJJ_0PMH125Contin_phantom128,,8.357E-04,,,/VBFToHiggs0PMContinToZZTo2e2muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
-#VBFTo4eJJ_0PMH125Contin_phantom128,,4.180E-04,,,/VBFToHiggs0PMContinToZZTo4eJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
-#VBFTo4muJJ_0PMH125Contin_phantom128,,4.180E-04,,,/VBFToHiggs0PMContinToZZTo4muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=True,,
+#VBFTo2e2muJJ_0PMH125Contin_phantom128,,8.357E-04,,,/VBFToHiggs0PMContinToZZTo2e2muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
+#VBFTo4eJJ_0PMH125Contin_phantom128,,4.180E-04,,,/VBFToHiggs0PMContinToZZTo4eJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
+#VBFTo4muJJ_0PMH125Contin_phantom128,,4.180E-04,,,/VBFToHiggs0PMContinToZZTo4muJJ_M125_GaSM_13TeV_phantom_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM,dbs,,1,ADDLHEKINEMATICS=True;VVMODE=1;VVDECAYMODE=0;ADDLOOSEELE=False,,
 
 
 # Irreducible background
-#TTZ,,0.25271,,,/TTZToLLNuNu_M-10_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,ADDLOOSEELE=True;APPLYTRIG=False,,
-TTZ_MLM,,0.259,,,/ttZJets_13TeV_madgraphMLM/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,ADDLOOSEELE=True;APPLYTRIG=False,,
+#TTZ,,0.25271,,,/TTZToLLNuNu_M-10_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,ADDLOOSEELE=False;APPLYTRIG=False,,
+#TTZ_MLM,,0.259,,,/ttZJets_13TeV_madgraphMLM/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,ADDLOOSEELE=False;APPLYTRIG=False,,
 
-#WWZ,,0.163215,,,/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,ADDLOOSEELE=True;APPLYTRIG=False,,
+#WWZ,,0.163215,,,/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,ADDLOOSEELE=False;APPLYTRIG=False,,
 
 
 
-#DYJetsToLL_M50,,     6025.2,    ,,/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=True;APPLYTRIG=False,,
-#TTJets,,             831.76,    ,,/TTJets_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,2,PROCESS_CR=True;ADDLOOSEELE=True;APPLYTRIG=False,,
+#DYJetsToLL_M50,,     6025.2,    ,,/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+#TTJets,,             831.76,    ,,/TTJets_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,2,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
 #TTTo2L2Nu,,          87.31,     ,,/TTTo2L2Nu_13TeV-powheg/RunIIFall15MiniAODv2-PU25nsData2015v1_76X_mcRun2_asymptotic_v12-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;APPLYTRIG=False,, # xs: 831.76*((3*0.108)**2) 
-#WZTo3LNu,,           4.42965,   ,,/WZTo3LNu_TuneCUETP8M1_13TeV-powheg-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=True;APPLYTRIG=False,,
-#ZGTo2LG,,            117.864,   ,,/ZGTo2LG_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=True;APPLYTRIG=False,,
+#WZTo3LNu,,           4.42965,   ,,/WZTo3LNu_TuneCUETP8M1_13TeV-powheg-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ZGTo2LG,,            117.864,   ,,/ZGTo2LG_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
