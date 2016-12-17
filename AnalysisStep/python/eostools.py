@@ -8,6 +8,7 @@ import sys
 import os
 import re
 import FWCore.ParameterSet.Config as cms
+import subprocess
 
 def setCAFPath():
     """Hack to get the CAF scripts on the PYTHONPATH"""
@@ -16,7 +17,6 @@ def setCAFPath():
     if caf not in sys.path:
         sys.path.append(caf)
 setCAFPath()
-import cmsIO
 
 
 def runXRDCommand(path, cmd, *args):
@@ -72,13 +72,28 @@ def lfnToPFN( path, tfcProt = 'rfio'):
             pfn.replace("eoscms","castorcms")
     return pfn
 
+class cmsFileManip:
+    """A class to interact with files/directories"""
+    def runCommand( self, cmd ) :
+        print 'comamnd ', cmd
+        myCommand = subprocess.Popen( cmd,
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE , shell=True)
+        ( out, err ) = myCommand.communicate()
+        if myCommand.returncode != 0:
+            print >> sys.stderr, "Command (%s) failed with return code: %d" % ( cmd, myCommand.returncode )
+            print >> sys.stderr, err
 
-def runDBS(dataset):
-    cmd = 'file dataset='+dataset
+        return out,err,myCommand.returncode
+
+def runDBS(dataset, instance = 'prod/global'):
+    cmd = '"file dataset='+dataset +' instance=%s"'%instance
+    print cmd
     command = ['/afs/cern.ch/cms/common/das_client' , '--limit=0', '--query', cmd]
-    runner = cmsIO.cmsFileManip()
-    # print ' '.join(command)
-    return runner.runCommand(command)
+    runner = cmsFileManip()
+    run_command = ' '.join(command)
+    return runner.runCommand(run_command)
+
 
 def listFiles(sample, path, rec = False, full_info = False):
     """Provides a list of the specified directory
@@ -99,7 +114,13 @@ def listFiles(sample, path, rec = False, full_info = False):
 #            result.append("root://cms-xrd-global.cern.ch//"+line)
             result.append(line)
         return result
-
+    elif path=="dbs-USER" :
+	print 'Querying USER db'
+	files, _, _ =runDBS(sample, 'prod/phys03')
+        for line in files.split('\n'):
+            result.append(line)
+        return result
+ 	
     # listing from local dir
     elif os.path.isdir( path ):
         if not rec:
