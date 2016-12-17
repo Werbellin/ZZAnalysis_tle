@@ -31,8 +31,8 @@ git clone https://github.com/Werbellin/RecoEgamma_8X.git RecoEgamma
 (cd RecoEgamma; git checkout d716460) 
 
 #ZZAnalysis
-git clone https://github.com/CJLST/ZZAnalysis.git ZZAnalysis
-(cd ZZAnalysis; git checkout miniAOD_80X)
+git clone git@github.com:Werbellin/ZZjjAnalysis.git ZZAnalysis
+(cd ZZAnalysis; git checkout ZZjj_miniAOD_80X)
 
 #effective areas (to be updated)
 git clone -n https://github.com/latinos/UserCode-sixie-Muon-MuonAnalysisTools Muon/MuonAnalysisTools
