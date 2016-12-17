@@ -31,7 +31,7 @@ identifier,process,crossSection=-1,BR=1,execute=True,dataset,prefix,pattern,spli
 #ggTo4e_Contin_MCFM701,,      0.00158549,   ,,/GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
 #ggTo4mu_Contin_MCFM701,,     0.00158549,   ,,/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
 #ggTo4tau_Contin_MCFM701,,    0.00158549,   ,,/GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,5,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
-ggTo2e2mu_Contin_MCFM701,,   0.0031942,    ,,/GluGluToContinToZZTo2e2mu_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
+#ggTo2e2mu_Contin_MCFM701,,   0.0031942,    ,,/GluGluToContinToZZTo2e2mu_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
 #ggTo2e2tau_Contin_MCFM701,,  0.0031942,    ,,/GluGluToContinToZZTo2e2tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,2,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
 #ggTo2mu2tau_Contin_MCFM701,, 0.0031942,    ,,/GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=False;APPLY_K_NNLOQCD_ZZGG=1;ADDLOOSEELE=False;APPLYTRIG=False,,
 
@@ -61,12 +61,15 @@ ggTo2e2mu_Contin_MCFM701,,   0.0031942,    ,,/GluGluToContinToZZTo2e2mu_13TeV_MC
 #TTZ,,0.25271,,,/TTZToLLNuNu_M-10_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,ADDLOOSEELE=False;APPLYTRIG=False,,
 #TTZ_MLM,,0.259,,,/ttZJets_13TeV_madgraphMLM/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,ADDLOOSEELE=False;APPLYTRIG=False,,
 
+
+TTJets_DiLept,,     5.673E+01,    ,,/TTJets_DiLept_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0_ext1-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+
 #WWZ,,0.163215,,,/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,1,ADDLOOSEELE=False;APPLYTRIG=False,,
 
 
-#DY1JetsToLL_M50,,     1.016E+03,    ,,/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
-#DY2JetsToLL_M50,,     3.314E+02,    ,,/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
-#DY3JetsToLL_M50,,     9.636E+01,    ,,/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+DY1JetsToLL_M50,,     1.016E+03,    ,,/DY1JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+DY2JetsToLL_M50,,     3.314E+02,    ,,/DY2JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
+DY3JetsToLL_M50,,     9.636E+01,    ,,/DY3JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
 DY4JetsToLL_M50,,     5.140E+01,    ,,/DY4JetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM,dbs,,4,PROCESS_CR=True;ADDLOOSEELE=False;APPLYTRIG=False,,
 
 
